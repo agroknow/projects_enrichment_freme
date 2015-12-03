@@ -1,5 +1,7 @@
 package gr.agrisap.projects;
 
+import gr.agroknow.config.ParamManager;
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -20,7 +22,7 @@ public class FREMEProjectsClient {
 		    String outformat = "json-ld";
 			source_lang= "en" ;
 			target_lang = "en";
-			String dataset= "cordis-fp7";
+			String dataset= ParamManager.getInstance().getDataSet();//"cordis-fp7";
 				 
 			Client client = Client.create();
 	 //http://api.freme-project.eu/0.3/e-entity/freme-ner/documents

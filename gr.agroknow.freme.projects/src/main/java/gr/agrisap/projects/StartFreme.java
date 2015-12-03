@@ -1,7 +1,10 @@
 package gr.agrisap.projects;
 
+import gr.agroknow.config.ParamManager;
+
 import java.io.File;
 import java.io.IOException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -9,6 +12,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -19,11 +23,12 @@ public class StartFreme {
 
 	public static void main(String[] args) {
 		
-		//ParamManager.getInstance().setParam( args ) ;
+		ParamManager.getInstance().setParam( args ) ;
 		if(args[0]==null){
 			 System.out.println("Please set projects input path (without trailing slash)!");	
-			 System.out.println("java -jar <java_name.jar> <projects path> ");
+			 System.out.println("java -jar <java_name.jar> <projects path> <CSV PATH> <DATASET> ");
 		}else{
+			
 		
 			//File inputDirectory = new File( "C:\\Users\\papou_000\\Desktop\\agroknow\\freme\\projects") ;
 			File inputDirectory = new File( args[0].toString()) ;
@@ -41,7 +46,7 @@ public class StartFreme {
 		
 		     ReadXMLFile readxml = new  ReadXMLFile();
 		     readxml.setDocument(doc); //pass the xml document to parser
-		     isAgResourse = readxml.createAgrovoElement(fileEntry.getPath() );
+		     isAgResourse = readxml.createProjectElement(fileEntry.getPath() );
 		     
 				  //call the freme utilities
 				  // FREMEClientAgrovoc fremeClient= new FREMEClientAgrovoc();

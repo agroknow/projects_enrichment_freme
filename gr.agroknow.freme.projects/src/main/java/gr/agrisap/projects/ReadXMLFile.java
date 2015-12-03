@@ -1,5 +1,6 @@
 package gr.agrisap.projects;
 
+import gr.agroknow.config.ParamManager;
 import gr.agroknow.manipulation.jsonld.*;
 
 import java.io.BufferedWriter;
@@ -25,6 +26,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 
 
 
@@ -60,12 +62,14 @@ public class ReadXMLFile {
 	 * */
 	
 	
-	public static Boolean createAgrovoElement(String filepath ) {
+	public static Boolean createProjectElement(String filepath ) {
 		
 		ClientResponse clResponse;
 		ParseResponse res = new ParseResponse();
 		Document doc = getDocument();
-		File file =new File("C:\\Users\\papou_000\\Desktop\\agroknow\\freme\\projects.csv");
+		String csvDir = ParamManager.getInstance().getCsvFolder();
+		//File file =new File("C:\\Users\\papou_000\\Desktop\\agroknow\\freme\\projects.csv");
+		File file =new File(csvDir+ "projects.csv");
 		String abstr;
 		String uri="";
 		String projects[] = null;
