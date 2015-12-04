@@ -1,5 +1,9 @@
-# projects_enrichment_freme
+# Projects enrichment via FREME NER services
 Enrich akstem resources with projects from freme services
+
+DESCRIPTION:
+This code enrich agrisAP xml files with projects uri for a given abscract of a agrisAP record .
+Example: ... <dc:relation>url.of.project<dc:relation>  ...
 
 
 Installation
